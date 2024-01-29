@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:XInstructor.UI.ViewModels"
+             xmlns:model="clr-namespace:XInstructor.UI.Models"
+             x:Class="XInstructor.UI.Views.WeatherWindView"
+             x:DataType="vm:WeatherWindViewModel">
+    <Grid ColumnDefinitions="*,*" RowDefinitions="auto, *">
+        <Label  Grid.Column="0" Grid.Row="0" Style="{StaticResource Headline}">Layers</Label>
+        <Label  Grid.Column="1" Grid.Row="0" Style="{StaticResource Headline}">Edit Layer</Label>
+        <Border Grid.Column="0" Grid.Row="1" Stroke="LightGray" StrokeThickness="1">
+            <VerticalStackLayout>
+                <Button Text="Add Wind Layer" FontAttributes="Bold" FontSize="20" Command="{Binding AddWindLayerCommand}">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale"  Value="0.8" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
+                <CollectionView
+            Grid.Column="0"
+            Grid.Row="1"
+            x:Name="collectionView"
+            HorizontalOptions="StartAndExpand"
+            ItemsSource="{Binding WindLayers}"
+            SelectedItem="{Binding SelectedWindLayer}"
+            SelectionMode="Single"
+            CanReorderItems="False">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:WindLayerModel">
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Delete"
+                                   IconImageSource="delete.png"
+                                   Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.DeleteWindLayerCommand}"
+                                   CommandParameter="{Binding}" 
+                                   BackgroundColor="LightPink" />
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <Border Stroke="Black" StrokeThickness="2" Margin="5">
+                                    <Grid ColumnDefinitions="*,*,*,*,*,*,*"
+                                  BackgroundColor="LightGray"
+                                  RowDefinitions="auto,auto">
+                                        <Grid.Resources>
+                                            <Style TargetType="Label">
+                                                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                                                <Setter Property="TextColor" Value="Black" />
+                                            </Style>
+                                        </Grid.Resources>
+                                        <Label Grid.Row="0" Grid.Column="0" FontSize="20" FontAttributes="Bold">Altitude (ft)</Label>
+                                        <Label Grid.Row="0" Grid.Column="1" FontSize="20" FontAttributes="Bold">Direction (°)</Label>
+                                        <Label Grid.Row="0" Grid.Column="2" FontSize="20" FontAttributes="Bold">From</Label>
+                                        <Label Grid.Row="0" Grid.Column="3" FontSize="20" FontAttributes="Bold">To</Label>
+                                        <Label Grid.Row="0" Grid.Column="4" FontSize="20" FontAttributes="Bold">Velocity (kts)</Label>
+                                        <Label Grid.Row="0" Grid.Column="5" FontSize="20" FontAttributes="Bold">Min</Label>
+                                        <Label Grid.Row="0" Grid.Column="6" FontSize="20" FontAttributes="Bold">Max</Label>
+
+                                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding Altitude}" />
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding DirectionTrue}" />
+                                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding VariableFrom}"/>
+                                        <Label Grid.Row="1" Grid.Column="3" Text="{Binding VariableTo}" />
+                                        <Label Grid.Row="1" Grid.Column="4" Text="{Binding Speed}"/>
+                                        <Label Grid.Row="1" Grid.Column="5" Text="{Binding MinSpeed}"/>
+                                        <Label Grid.Row="1" Grid.Column="6" Text="{Binding MaxSpeed}"/>
+                                    </Grid>
+                                </Border>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="1" Stroke="LightGray" StrokeThickness="1">
+            <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto"
+              ColumnDefinitions="*,*">
+                <Label Grid.Column="0" Grid.Row="0" FontSize="20" FontAttributes="Bold">Altitude</Label>
+                <Label Grid.Column="0" Grid.Row="1" FontSize="20" FontAttributes="Bold">Direction</Label>
+                <Label Grid.Column="0" Grid.Row="2" FontSize="20" FontAttributes="Bold">From</Label>
+                <Label Grid.Column="0" Grid.Row="3" FontSize="20" FontAttributes="Bold">To</Label>
+                <Label Grid.Column="0" Grid.Row="4" FontSize="20" FontAttributes="Bold">Velocity</Label>
+                <Label Grid.Column="0" Grid.Row="5" FontSize="20" FontAttributes="Bold">Min</Label>
+                <Label Grid.Column="0" Grid.Row="6" FontSize="20" FontAttributes="Bold">Max</Label>
+
+                <Editor Grid.Column="1" Grid.Row="0" Text="{Binding SelectedWindLayer.Altitude}" />
+                <Editor Grid.Column="1" Grid.Row="1" Text="{Binding SelectedWindLayer.DirectionTrue}" />
+                <Editor Grid.Column="1" Grid.Row="2" Text="{Binding SelectedWindLayer.VariableFrom}"/>
+                <Editor Grid.Column="1" Grid.Row="3" Text="{Binding SelectedWindLayer.VariableTo}" />
+                <Editor Grid.Column="1" Grid.Row="4" Text="{Binding SelectedWindLayer.Speed}"/>
+                <Editor Grid.Column="1" Grid.Row="5" Text="{Binding SelectedWindLayer.MinSpeed}"/>
+                <Editor Grid.Column="1" Grid.Row="6" Text="{Binding SelectedWindLayer.MaxSpeed}"/>
+
+                <ImageButton Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" Background="Red" Source="delete.png" HeightRequest="25"
+                         Command="{Binding DeleteWindLayerCommand}" CommandParameter="{Binding SelectedWindLayer}">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="Scale"  Value="0.8" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </ImageButton>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentView>

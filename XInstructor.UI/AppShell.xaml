@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="XInstructor.UI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:XInstructor.UI.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Title="X-Instructor">
+
+    <!--<ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate view:HomePage}"
+        Route="MainPage" />-->
+
+    <ShellContent
+        Title="Weather"
+        ContentTemplate="{DataTemplate view:WeatherPage}"
+        Route="Weather" />
+
+    <!--<ShellContent
+        Title="Failures"
+        ContentTemplate="{DataTemplate view:FailurePage}"
+        Route="Failures" />-->
+
+</Shell>
