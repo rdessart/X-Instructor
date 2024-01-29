@@ -71,36 +71,36 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)\bin\XInstructor/win_64/</OutDir>
+    <OutDir>C:\X-Plane 12\Resources\plugins\XInstructor\64\</OutDir>
     <IntDir>$(ProjectDir)\bin\temp\</IntDir>
-    <TargetName>win64</TargetName>
+    <TargetName>win</TargetName>
     <TargetExt>.xpl</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)\bin\XInstructor/win_64/</OutDir>
+    <OutDir>C:\X-Plane 12\Resources\plugins\XInstructor\64\</OutDir>
     <IntDir>$(ProjectDir)\bin\temp\</IntDir>
-    <TargetName>win64</TargetName>
+    <TargetName>win</TargetName>
     <TargetExt>.xpl</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(ProjectDir)\bin\XInstructor/win_64/</OutDir>
+    <OutDir>C:\X-Plane 12\Resources\plugins\XInstructor\64\</OutDir>
     <IntDir>$(ProjectDir)\bin\temp\</IntDir>
-    <TargetName>win64</TargetName>
+    <TargetName>win</TargetName>
     <TargetExt>.xpl</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)\bin\XInstructor/win_64/</OutDir>
+    <OutDir>C:\X-Plane 12\Resources\plugins\XInstructor\64\</OutDir>
     <IntDir>$(ProjectDir)\bin\temp\</IntDir>
-    <TargetName>win64</TargetName>
+    <TargetName>win</TargetName>
     <TargetExt>.xpl</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM201=1;XPLM300=1;XPLM303=1;XPLM400=1;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM210=1;XPLM300=1;XPLM303=1;XPLM400=1;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)SDK\CHeaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -117,9 +117,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM201=1;XPLM300=1;XPLM303=1;XPLM400=1;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM210=1;XPLM300=1;XPLM303=1;XPLM400=1;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)SDK\CHeaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -136,9 +136,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM201=1;XPLM300=1;XPLM303=1;XPLM400=1;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM210=1;XPLM300=1;XPLM303=1;XPLM400=1;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)SDK\CHeaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -155,9 +155,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM201=1;XPLM300=1;XPLM303=1;XPLM400=1;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>IBM=1;XPLM200=1;XPLM210=1;XPLM300=1;XPLM303=1;XPLM400=1;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalIncludeDirectories>$(ProjectDir)SDK\CHeaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -171,7 +171,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Sources\Datarefs\Dataref.cpp" />
+    <ClCompile Include="Sources\Datarefs\DatarefManager.cpp" />
+    <ClCompile Include="Sources\Datarefs\FFA320Dataref.cpp" />
     <ClCompile Include="Sources\main.cpp" />
+    <ClCompile Include="Sources\Network\NetworkUtils.cpp" />
+    <ClCompile Include="Sources\Network\UDPBeacon.cpp" />
+    <ClCompile Include="Sources\Network\UDPServer.cpp" />
+    <ClCompile Include="Sources\Tools\Logger.cpp" />
+    <ClCompile Include="Sources\Tools\Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sources\Datarefs\AbstractDataref.h" />
+    <ClInclude Include="Sources\Datarefs\Dataref.h" />
+    <ClInclude Include="Sources\Datarefs\DatarefManager.h" />
+    <ClInclude Include="Sources\Datarefs\FFA320Dataref.h" />
+    <ClInclude Include="Sources\Network\IServer.h" />
+    <ClInclude Include="Sources\Network\Message.h" />
+    <ClInclude Include="Sources\Network\NetworkUtils.h" />
+    <ClInclude Include="Sources\Network\UDPBeacon.h" />
+    <ClInclude Include="Sources\Network\UDPServer.h" />
+    <ClInclude Include="Sources\Tools\Logger.h" />
+    <ClInclude Include="Sources\Tools\SharedValue.h" />
+    <ClInclude Include="Sources\Tools\Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

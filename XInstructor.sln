@@ -7,6 +7,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XInstructor.UI", "XInstruct
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XInstructor.Xplane", "XInstructor.Xplane\XInstructor.Xplane.vcxproj", "{FDDAA7E8-81F1-4378-81B5-D3934A839792}"
 EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "X-Plane", "..\..\..\..\..\X-Plane 12\X-Plane.exe", "{77AA6EDA-C948-4836-83BA-F25DB26A79F9}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\X-Plane 12\X-Plane.exe
+		RemoteMachine = ZOIDBERG
+		StartingDirectory = C:\X-Plane 12
+		Environment = Default
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+		IORedirection = Auto
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +49,10 @@ Global
 		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Release|Any CPU.Build.0 = Release|x64
 		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Release|x64.ActiveCfg = Release|x64
 		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Release|x64.Build.0 = Release|x64
+		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Debug|Any CPU.ActiveCfg = Release|x64
+		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Debug|x64.ActiveCfg = Release|x64
+		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Release|Any CPU.ActiveCfg = Release|x64
+		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
