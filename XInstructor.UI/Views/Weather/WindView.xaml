@@ -29,14 +29,14 @@
                     </VisualStateManager.VisualStateGroups>
                 </Button>
                 <CollectionView
-            Grid.Column="0"
-            Grid.Row="1"
-            x:Name="collectionView"
-            HorizontalOptions="StartAndExpand"
-            ItemsSource="{Binding WindLayers}"
-            SelectedItem="{Binding SelectedWindLayer}"
-            SelectionMode="Single"
-            CanReorderItems="False">
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        x:Name="collectionView"
+                        HorizontalOptions="StartAndExpand"
+                        ItemsSource="{Binding WindLayers}"
+                        SelectedItem="{Binding SelectedWindLayer}"
+                        SelectionMode="Single"
+                        CanReorderItems="False">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical" ItemSpacing="2" />
                     </CollectionView.ItemsLayout>

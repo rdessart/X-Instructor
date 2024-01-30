@@ -2,8 +2,72 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:vm="clr-namespace:XInstructor.Common.ViewModels;assembly=XInstructor.Common"
+            xmlns:model="clr-namespace:XInstructor.Common.Models;assembly=XInstructor.Common"
             x:Class="XInstructor.UI.Views.HomePage"
             x:DataType="vm:HomeViewModel"
             Title="Home">
-    
+    <Grid RowDefinitions="auto,*,auto">
+        <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
+            <Label Grid.Column="0">Listening Port : </Label>
+            <Editor Grid.Column="1" Placeholder="PORT" Text="{Binding BeaconPort}" IsReadOnly="{Binding BeaconLocatorRunning}" />
+            <Button Grid.Column="2" Text="{Binding BeaconStartText}" Command="{Binding SwitchServiceCommand}" />
+        </Grid>
+        <ScrollView Grid.Row="1" 
+                    VerticalScrollBarVisibility="Always">
+            <CollectionView  ItemsSource="{Binding Beacons}" 
+                             SelectionMode="Multiple" 
+                             SelectedItems="{Binding SelectedBeacons}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ClientModel">
+                        <Border Stroke="Gray" StrokeThickness="1">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroupList>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="DarkGray" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Gray" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid RowDefinitions="auto, auto" ColumnDefinitions="*,*,*,*,*,*,*">
+                                <Grid.Resources>
+                                    <Style TargetType="Label">
+                                        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                                        <Setter Property="TextColor" Value="Black" />
+                                    </Style>
+                                </Grid.Resources>
+                                
+                                <Label Grid.Row="0" Grid.Column="0" FontAttributes="Bold" >Aircraft Name</Label>
+                                <Label Grid.Row="0" Grid.Column="1" FontAttributes="Bold" >Aircraft Author</Label>
+                                <Label Grid.Row="0" Grid.Column="2" FontAttributes="Bold" >Simulator</Label>
+                                <Label Grid.Row="0" Grid.Column="3" FontAttributes="Bold" >Simulator IP</Label>
+                                <Label Grid.Row="0" Grid.Column="4" FontAttributes="Bold" >Simulator Port</Label>
+                                <Label Grid.Row="0" Grid.Column="5" FontAttributes="Bold" >Local Port</Label>
+                                <Label Grid.Row="0" Grid.Column="6" FontAttributes="Bold" >Last Received</Label>
+
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding AircraftAuthor}" />
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding AircraftDescription}" />
+                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Simulator}" />
+                                <Label Grid.Row="1" Grid.Column="3" Text="{Binding RemoteAddress}" />
+                                <Label Grid.Row="1" Grid.Column="4" Text="{Binding RemotePort}" />
+                                <Label Grid.Row="1" Grid.Column="5" Text="{Binding LocalPort}" />
+                                <Label Grid.Row="1" Grid.Column="6" Text="{Binding LastBeacon}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <Button Grid.Row="2" Text="Clear Selection" Command="{Binding ClearSelectionCommand}" />
+    </Grid>
 </ContentPage>

@@ -7,19 +7,19 @@
     Shell.FlyoutBehavior="Flyout"
     Title="X-Instructor">
 
-    <!--<ShellContent
+    <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate view:HomePage}"
-        Route="MainPage" />-->
+        Route="MainPage" />
 
     <ShellContent
         Title="Weather"
         ContentTemplate="{DataTemplate view:WeatherPage}"
         Route="Weather" />
 
-    <!--<ShellContent
+    <ShellContent
         Title="Failures"
         ContentTemplate="{DataTemplate view:FailurePage}"
-        Route="Failures" />-->
+        Route="Failures" />
 
 </Shell>

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\XInstructor.Common\XInstructor.Common.csproj" />
   </ItemGroup>
 

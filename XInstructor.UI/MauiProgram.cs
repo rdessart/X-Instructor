@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using XInstructor.Common.Services;
 using XInstructor.Common.ViewModels;
 using XInstructor.UI.ViewModels;
 using XInstructor.UI.Views;
@@ -8,7 +9,11 @@ namespace XInstructor.UI
 {
     public static class MauiProgram
     {
-        public static MauiAppBuilder RegisterService(this MauiAppBuilder app) => app;
+        public static MauiAppBuilder RegisterService(this MauiAppBuilder app) 
+        {
+            app.Services.AddSingleton<BeaconLocatorService>();
+            return app;
+        }
 
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder app) 
         {

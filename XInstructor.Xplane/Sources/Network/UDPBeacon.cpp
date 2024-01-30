@@ -50,8 +50,11 @@ int UDPBeaon::Initalize()
 
 int UDPBeaon::SendMessage(json message)
 {
-    std::time_t end_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    message.emplace("Time", std::ctime(&end_time));
+    //std::time_t end_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    //message.emplace("Time", std::ctime(&end_time));
+    std::time_t result = std::time(nullptr);
+    //std::cout << std::asctime(std::localtime(&result));
+    message.emplace("Time", result);
     message.emplace("IPAddress", this->GetIPAddress().str_ip);
     message.emplace("ListeningPort", 50555);
     message.emplace("EmitPort", 50556);

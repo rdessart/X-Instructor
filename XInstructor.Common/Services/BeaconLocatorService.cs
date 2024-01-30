@@ -1,7 +1,12 @@
-﻿using System.Diagnostics;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using Microsoft.Extensions.Hosting;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
+using XInstructor.Common.Messages;
+using XInstructor.Common.Models.Network;
 
 namespace XInstructor.Common.Services;
 
@@ -27,18 +32,30 @@ public class BeaconLocatorService
     private EndPoint _remoteEP;
     private byte[] _buffer;
 
-    //public event 
+    private static Mutex ServiceMutex = new Mutex();
+
+    public bool IsRunning { get; set; } = false;
+
+
 
     public BeaconLocatorService()
     {
         _remoteEP = new IPEndPoint(IPAddress.Any, 0);
-        _socket = new Socket(socketType: SocketType.Dgram, protocolType: ProtocolType.Udp, addressFamily: AddressFamily.InterNetwork);
         _bindEndPoint = new IPEndPoint(IPAddress.Any, 0);
         _buffer = new byte[500];
+        _socket = new Socket(
+           socketType: SocketType.Dgram,
+           protocolType: ProtocolType.Udp,
+           addressFamily: AddressFamily.InterNetwork);
     }
 
     public bool Initalise(int targetPort = 50888)
     {
+        _socket = new Socket(
+            socketType: SocketType.Dgram, 
+            protocolType: ProtocolType.Udp, 
+            addressFamily: AddressFamily.InterNetwork);
+
         _bindEndPoint.Port = targetPort;
         try
         {
@@ -49,6 +66,11 @@ public class BeaconLocatorService
             Debug.WriteLine(se);
             return false ;
         }
+
+        ServiceMutex.WaitOne();
+        IsRunning = true;
+        ServiceMutex.ReleaseMutex();
+
         return true;
     }
 
@@ -57,16 +79,55 @@ public class BeaconLocatorService
         StartReceive();
     }
 
-    private void StartReceive()
+    public void Stop()
+    {
+        ServiceMutex.WaitOne();
+        IsRunning = false;
+        ServiceMutex.ReleaseMutex();
+        _socket.Close();
+    }
+
+    protected void StartReceive()
     {
         _socket.BeginReceiveFrom(_buffer, 0, 500, SocketFlags.None, ref _remoteEP, EndReceive, _socket);
     }
 
-    private void EndReceive(IAsyncResult ar)
+    protected void EndReceive(IAsyncResult ar)
     {
-        int received = (ar.AsyncState as Socket)!.EndReceiveFrom(ar, ref _remoteEP);
-        string data = Encoding.ASCII.GetString(_buffer, 0, received);
-        Debug.WriteLine($"Received {data}");
-        StartReceive();
+        int received = 0;
+        try
+        {
+            received = (ar.AsyncState as Socket)!.EndReceiveFrom(ar, ref _remoteEP);
+        }
+        catch (SocketException se)
+        {
+            Debug.WriteLine(se);
+            IsRunning = false;
+            return;
+        }
+        if (received > 0)
+        {
+            string data = Encoding.ASCII.GetString(_buffer, 0, received);
+            Debug.WriteLine($"Received {data}");
+            BeaconOperation? beacon = null;
+            try
+            {
+                beacon = JsonSerializer.Deserialize<BeaconOperation>(data);
+            }
+            catch (JsonException je)
+            {
+                Debug.WriteLine($"Message was {data}");
+                Debug.WriteLine($"JSON Exception {je}");
+            }
+            if (beacon != null)
+            {
+                WeakReferenceMessenger.Default.Send(new BeaconReceiveMessage(beacon));
+            }
+        }
+        bool needRerun = false;
+        ServiceMutex.WaitOne();
+        needRerun  = IsRunning;
+        ServiceMutex.ReleaseMutex();
+        if (needRerun) StartReceive();
     }
 }
