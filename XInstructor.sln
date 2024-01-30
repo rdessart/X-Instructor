@@ -23,6 +23,8 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "X-Plane", "..\..\..\..\..\X
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInstructor.Common", "XInstructor.Common\XInstructor.Common.csproj", "{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInstructor.Tester", "XInstructor.Tester\XInstructor.Tester.csproj", "{393CDE89-0200-4454-AFEE-0A938C23B3AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,14 @@ Global
 		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Release|x64.ActiveCfg = Release|Any CPU
 		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Release|x64.Build.0 = Release|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Debug|x64.Build.0 = Debug|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Release|x64.ActiveCfg = Release|Any CPU
+		{393CDE89-0200-4454-AFEE-0A938C23B3AF}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
