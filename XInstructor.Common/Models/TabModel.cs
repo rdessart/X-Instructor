@@ -1,6 +1,6 @@
-﻿using XInstructor.UI.ViewModels;
+﻿using XInstructor.Common.ViewModels;
 
-namespace XInstructor.UI.Models;
+namespace XInstructor.Common.Models;
 
 public class TabModel(string header, BaseViewModel vm)
 {

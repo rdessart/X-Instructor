@@ -4,9 +4,9 @@ namespace XInstructor.UI.Views;
 
 public partial class WeatherPage : ContentPage
 {
-	public WeatherPage(WeatherViewModel vm)
+	public WeatherPage(WeatherViewModelMaui vm)
 	{
 		BindingContext = vm;
 		InitializeComponent();
 	}
-}
+}}

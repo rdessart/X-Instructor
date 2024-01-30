@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Diagnostics;
 
-namespace XInstructor.UI.ViewModels.Weather;
+namespace XInstructor.Common.ViewModels.Weather;
 
-public partial class WeatherTimeViewModel : BaseViewModel
+public partial class TimeViewModel : BaseViewModel
 {
     [ObservableProperty]
     private DateTime _currentSystemTime = DateTime.Now;
@@ -124,7 +124,7 @@ public partial class WeatherTimeViewModel : BaseViewModel
 
     private System.Timers.Timer _timer;
 
-    public WeatherTimeViewModel()
+    public TimeViewModel()
     {
         CurrentSystemTime = DateTime.Now;
         TargetDate = new DateOnly(CurrentSystemTime.Year, CurrentSystemTime.Month, CurrentSystemTime.Day);

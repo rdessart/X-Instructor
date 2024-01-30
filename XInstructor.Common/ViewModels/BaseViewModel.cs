@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace XInstructor.UI.ViewModels;
+namespace XInstructor.Common.ViewModels;
 
 public class BaseViewModel : ObservableObject
 {

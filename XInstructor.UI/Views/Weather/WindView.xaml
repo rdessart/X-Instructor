@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:XInstructor.UI.ViewModels"
-             xmlns:model="clr-namespace:XInstructor.UI.Models"
-             x:Class="XInstructor.UI.Views.WeatherWindView"
-             x:DataType="vm:WeatherWindViewModel">
+             xmlns:vm="clr-namespace:XInstructor.Common.ViewModels.Weather;assembly=XInstructor.Common"
+             xmlns:model="clr-namespace:XInstructor.Common.Models;assembly=XInstructor.Common"
+             x:Class="XInstructor.UI.Views.Weather.WindView"
+             x:DataType="vm:WindViewModel">
     <Grid ColumnDefinitions="*,*" RowDefinitions="auto, *">
         <Label  Grid.Column="0" Grid.Row="0" Style="{StaticResource Headline}">Layers</Label>
         <Label  Grid.Column="1" Grid.Row="0" Style="{StaticResource Headline}">Edit Layer</Label>

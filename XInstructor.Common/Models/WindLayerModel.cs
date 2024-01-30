@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace XInstructor.UI.Models;
+namespace XInstructor.Common.Models;
 
 public partial class WindLayerModel : ObservableObject
 {

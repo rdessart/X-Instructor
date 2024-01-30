@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using XInstructor.Common.ViewModels;
 using XInstructor.UI.ViewModels;
 using XInstructor.UI.Views;
 
@@ -12,7 +13,7 @@ namespace XInstructor.UI
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder app) 
         {
             app.Services.AddSingleton<HomeViewModel>();
-            app.Services.AddSingleton<WeatherViewModel>();
+            app.Services.AddSingleton<WeatherViewModelMaui>();
             app.Services.AddSingleton<FailureViewModel>();
             return app;
         }

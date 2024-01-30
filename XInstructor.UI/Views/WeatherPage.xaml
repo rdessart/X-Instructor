@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:XInstructor.UI.ViewModels"
-             xmlns:model="clr-namespace:XInstructor.UI.Models"
+             xmlns:model="clr-namespace:XInstructor.Common.Models;assembly=XInstructor.Common"
              x:Class="XInstructor.UI.Views.WeatherPage"
-             x:DataType="vm:WeatherViewModel"
+             x:DataType="vm:WeatherViewModelMaui"
              Title="Weather">
     <Grid RowDefinitions="auto, *">
         <CollectionView Grid.Row="0" 

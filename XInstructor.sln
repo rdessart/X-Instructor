@@ -21,6 +21,8 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "X-Plane", "..\..\..\..\..\X
 		IORedirection = Auto
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInstructor.Common", "XInstructor.Common\XInstructor.Common.csproj", "{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,14 @@ Global
 		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Debug|x64.ActiveCfg = Release|x64
 		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Release|Any CPU.ActiveCfg = Release|x64
 		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Release|x64.ActiveCfg = Release|x64
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Debug|x64.Build.0 = Debug|Any CPU
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Release|x64.ActiveCfg = Release|Any CPU
+		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

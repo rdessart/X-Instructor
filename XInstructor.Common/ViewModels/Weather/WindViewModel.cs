@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using XInstructor.UI.Models;
+using XInstructor.Common.Models;
 
-namespace XInstructor.UI.ViewModels;
+namespace XInstructor.Common.ViewModels.Weather;
 
-public partial class WeatherWindViewModel : BaseViewModel
+public partial class WindViewModel : BaseViewModel
 {
     [ObservableProperty]
     private ObservableCollection<WindLayerModel> _windLayers = [];
@@ -36,7 +36,7 @@ public partial class WeatherWindViewModel : BaseViewModel
     }
 
 
-    public WeatherWindViewModel()
+    public WindViewModel()
     {
 #if DEBUG
         WindLayers = [
