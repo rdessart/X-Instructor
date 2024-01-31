@@ -57,7 +57,6 @@ int UDPBeaon::SendMessage(json message)
     message.emplace("Time", result);
     message.emplace("IPAddress", this->GetIPAddress().str_ip);
     message.emplace("ListeningPort", 50555);
-    message.emplace("EmitPort", 50556);
     //struct addrinfo hints;
     struct sockaddr_in ipTarget;
     int res = inet_pton(AF_INET, GetIPAddress().str_broadcast.c_str(), &ipTarget.sin_addr.s_addr);
