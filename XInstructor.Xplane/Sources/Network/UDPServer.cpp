@@ -14,14 +14,14 @@ int UDPServer::Initalize()
 #ifdef IBM
     if (WSAStartup(MAKEWORD(2, 2), &_wsa))
     {
-        m_logger.Log("[XPLMServer] Unable to initlaize WSA\n");
+        m_logger.Log("[X-Instructor] Unable to initlaize WSA\n");
         return 0x01;
     }
 #endif
     _socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     if (!ISVALIDSOCKET(_socket))
     {
-        m_logger.Log("[XPLMServer] Socket is invalid\n");
+        m_logger.Log("[X-Instructor] Socket is invalid\n");
         return 0x02;
     }
     struct addrinfo hints;
@@ -46,6 +46,8 @@ int UDPServer::Initalize()
 
 int UDPServer::SendMessage(Message message)
 {
+    //For performance analysis
+    message.message.emplace("ResponseTimestamp", std::time(nullptr));
     std::string text = message.message.dump();
     m_logger.Log("Sending ' :" + text + "'!", Logger::Severity::DEBUG);
     return sendto(_socket, 
@@ -87,6 +89,8 @@ void UDPServer::ReceiveMessage(DatarefManager* manager)
             std::string strData(data);
             strData = strData.substr(0,received);
             json message = json::parse(strData);
+            //For performance analysis
+            message.emplace("ReceivedTimestamp", std::time(nullptr));
             Message m;
             m.message = message;
             m.target = cliAddr;

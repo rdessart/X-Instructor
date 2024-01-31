@@ -44,7 +44,7 @@ public:
     SharedValuesInterface* GetFF320Interface();
 
 protected:
-    Logger m_logger = Logger("XPLMServer.log", "DatarefManager", false);
+    Logger m_logger = Logger("X-Instructor.log", "DatarefManager", false);
     std::map<std::string, AbstractDataref*> m_datarefMap;
     SharedValuesInterface* m_ff320;
     bool m_isFF320Enable = false;

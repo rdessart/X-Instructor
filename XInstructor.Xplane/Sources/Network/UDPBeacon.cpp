@@ -21,14 +21,14 @@ int UDPBeaon::Initalize()
 #ifdef IBM
     if (WSAStartup(MAKEWORD(2, 2), &_wsa))
     {
-        m_logger.Log("[XPLMServer] Unable to initlaize WSA\n");
+        m_logger.Log("[X-Instructor] Unable to initlaize WSA\n");
         return 0x01;
     }
 #endif
     _socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     if (!ISVALIDSOCKET(_socket))
     {
-        m_logger.Log("[XPLMServer] Socket is invalid\n");
+        m_logger.Log("[X-Instructor] Socket is invalid\n");
         return 0x02;
     }
 #ifdef IBM
@@ -37,7 +37,7 @@ int UDPBeaon::Initalize()
     int res = setsockopt(_socket, SOL_SOCKET, SO_BROADCAST, (char*)&bOptVal, bOptLen);
     if (res == SOCKET_ERROR)
     {
-        m_logger.Log("[XPLMServer]Unable to set socket as broadcast\n");
+        m_logger.Log("[X-Instructor]Unable to set socket as broadcast\n");
         return 0x03;
     }
 
@@ -50,8 +50,7 @@ int UDPBeaon::Initalize()
 
 int UDPBeaon::SendMessage(json message)
 {
-    std::time_t result = std::time(nullptr);
-    message.emplace("Time", result);
+    message.emplace("Time", std::time(nullptr));
     message.emplace("IPAddress", this->GetIPAddress().str_ip);
     message.emplace("ListeningPort", 50555);
     //struct addrinfo hints;

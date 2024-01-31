@@ -17,7 +17,7 @@ protected:
     WSADATA _wsa = { 0 };
 #endif
 	SOCKET _socket = INVALID_SOCKET;
-    Logger m_logger = Logger("XPLMServer.log", "UDPBeacon", true);
+    Logger m_logger = Logger("X-Instructor.log", "UDPBeacon", true);
     struct addrinfo* _targetAddress = nullptr;
     fd_set master;
     SOCKET m_maxSocket = INVALID_SOCKET;

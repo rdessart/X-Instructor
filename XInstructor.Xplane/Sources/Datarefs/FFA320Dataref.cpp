@@ -4,7 +4,7 @@ FFDataref::FFDataref() : m_id(-1),
 m_type(Type::Deleted), m_link(""),
 m_conversionFactor("1.0"),
 m_ffapi(nullptr),
-m_logger(Logger("XPLMServer.log", "FFDataref", false)),
+m_logger(Logger("X-Instructor.log", "FFDataref", false)),
 m_needUpdate(false)
 {
 	TypeDataref = DatarefType::FFDataref;

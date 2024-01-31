@@ -18,7 +18,7 @@ public:
     void SetIPAddress(IPInfo ip);
     IPInfo GetIPAddress();
 protected:
-    Logger m_logger = Logger("XPLMServer.log", "UDPBeacon", true);
+    Logger m_logger = Logger("X-Instructor.log", "UDPBeacon", true);
     std::vector<IPInfo> _ips;
     std::mutex gLock;
     IPInfo m_ip;
