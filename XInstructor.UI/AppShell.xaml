@@ -22,4 +22,8 @@
         ContentTemplate="{DataTemplate view:FailurePage}"
         Route="Failures" />
 
+    <ShellContent
+        Title="Requests"
+        ContentTemplate="{DataTemplate view:RequestPage}"
+        Route="Requests" />
 </Shell>

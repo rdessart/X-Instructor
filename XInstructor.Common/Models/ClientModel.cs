@@ -21,12 +21,10 @@ public partial class ClientModel : ObservableObject
     [ObservableProperty]
     private IPAddress _remoteAddress = IPAddress.Any;
 
-
     [ObservableProperty]
     private int _remotePort = 0;
 
-    [ObservableProperty]
-    private int _localPort = 0;
+    public uint LastOperationId { get; set; } = 0;
 
     public void FromBeacon(BeaconOperation ops)
     {
@@ -36,6 +34,5 @@ public partial class ClientModel : ObservableObject
         LastBeacon = ops.BeaconTimeStampZulu.ToLocalTime();
         RemoteAddress = IPAddress.Parse(ops.SimulatorIp);
         RemotePort = ops.SimulatorInbound;
-        LocalPort = ops.SimulatorOutbound;
     }
 }

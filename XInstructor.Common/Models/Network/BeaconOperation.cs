@@ -14,9 +14,6 @@ public class BeaconOperation : NetworkOperation
     [JsonPropertyName("ListeningPort")]
     public int SimulatorInbound  { get; set; }
 
-    [JsonPropertyName("EmitPort")]
-    public int SimulatorOutbound  { get; set; }
-
     [JsonPropertyName("IPAddress")]
     public string SimulatorIp  { get; set; } = null!;
 
@@ -38,6 +35,4 @@ public class BeaconOperation : NetworkOperation
     [JsonIgnore]
     public IPEndPoint RemoteEP => new IPEndPoint(IPAddress.Parse(SimulatorIp), SimulatorInbound);
     
-    [JsonIgnore]
-    public IPEndPoint LocalEP => new IPEndPoint(IPAddress.Parse(SimulatorIp), SimulatorOutbound);
 }

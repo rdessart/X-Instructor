@@ -15,8 +15,8 @@
         <ScrollView Grid.Row="1" 
                     VerticalScrollBarVisibility="Always">
             <CollectionView  ItemsSource="{Binding Beacons}" 
-                             SelectionMode="Multiple" 
-                             SelectedItems="{Binding SelectedBeacons}">
+                             SelectionMode="Single" 
+                             SelectedItem="{Binding SelectedBeacon}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" ItemSpacing="2" />
                 </CollectionView.ItemsLayout>
@@ -39,7 +39,7 @@
                                     </VisualStateGroup>
                                 </VisualStateGroupList>
                             </VisualStateManager.VisualStateGroups>
-                            <Grid RowDefinitions="auto, auto" ColumnDefinitions="*,*,*,*,*,*,*">
+                            <Grid RowDefinitions="auto, auto" ColumnDefinitions="*,*,*,*,*,*">
                                 <Grid.Resources>
                                     <Style TargetType="Label">
                                         <Setter Property="HorizontalTextAlignment" Value="Center"/>
@@ -52,16 +52,14 @@
                                 <Label Grid.Row="0" Grid.Column="2" FontAttributes="Bold" >Simulator</Label>
                                 <Label Grid.Row="0" Grid.Column="3" FontAttributes="Bold" >Simulator IP</Label>
                                 <Label Grid.Row="0" Grid.Column="4" FontAttributes="Bold" >Simulator Port</Label>
-                                <Label Grid.Row="0" Grid.Column="5" FontAttributes="Bold" >Local Port</Label>
-                                <Label Grid.Row="0" Grid.Column="6" FontAttributes="Bold" >Last Received</Label>
+                                <Label Grid.Row="0" Grid.Column="5" FontAttributes="Bold" >Last Received</Label>
 
                                 <Label Grid.Row="1" Grid.Column="0" Text="{Binding AircraftAuthor}" />
                                 <Label Grid.Row="1" Grid.Column="1" Text="{Binding AircraftDescription}" />
                                 <Label Grid.Row="1" Grid.Column="2" Text="{Binding Simulator}" />
                                 <Label Grid.Row="1" Grid.Column="3" Text="{Binding RemoteAddress}" />
                                 <Label Grid.Row="1" Grid.Column="4" Text="{Binding RemotePort}" />
-                                <Label Grid.Row="1" Grid.Column="5" Text="{Binding LocalPort}" />
-                                <Label Grid.Row="1" Grid.Column="6" Text="{Binding LastBeacon}" />
+                                <Label Grid.Row="1" Grid.Column="5" Text="{Binding LastBeacon}" />
                             </Grid>
                         </Border>
                     </DataTemplate>

@@ -11,6 +11,7 @@ namespace XInstructor.Common.ViewModels;
 
 public partial class HomeViewModel : BaseViewModel, IRecipient<BeaconReceiveMessage>
 {
+    private readonly ClientManagerService _clientManagerService;
     private readonly BeaconLocatorService _beaconLocatorService;
 
     [ObservableProperty]
@@ -41,22 +42,37 @@ public partial class HomeViewModel : BaseViewModel, IRecipient<BeaconReceiveMess
     private ObservableCollection<ClientModel> _beacons = [];
 
     [ObservableProperty]
-    private ObservableCollection<ClientModel> _selectedBeacons = [];
+    private ClientModel? _selectedBeacon = null;
+
+    partial void OnSelectedBeaconChanged(ClientModel? value)
+    {
+        if (value != null)
+        {
+            _clientManagerService.AddClient(value);
+        }
+    }
+
+
+    //[RelayCommand]
+    //private void SelectionChanged()
+    //{
+
+    //}
 
 
     [RelayCommand]
     private void ClearSelection()
+    ///<summary>Clear selection and refresh the UI state</summary>
     {
-        //SelectedClient = null;
-        //var beacons = Beacons;
-        //Beacons = beacons;
-        SelectedBeacons = [];
-        //Beacons.Clear();
+        SelectedBeacon = null;
+        var beacons = Beacons;
+        Beacons = beacons;
     }
 
-    public HomeViewModel(BeaconLocatorService beaconLocatorService) 
+    public HomeViewModel(BeaconLocatorService beaconLocatorService, ClientManagerService clientManagerService) 
     {
         _beaconLocatorService = beaconLocatorService;
+        _clientManagerService = clientManagerService;
         WeakReferenceMessenger.Default.Register(this);
     }
 

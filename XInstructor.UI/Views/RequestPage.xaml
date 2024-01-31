@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dg="clr-namespace:Maui.DataGrid;assembly=Maui.DataGrid"
+             xmlns:vm="clr-namespace:XInstructor.Common.ViewModels;assembly=XInstructor.Common"
+             x:Class="XInstructor.UI.Views.RequestPage"
+             x:DataType="vm:RequestViewModel"
+             Title="Request">
+    <Grid RowDefinitions="auto,auto,*">
+        <Label Grid.Row="0" HorizontalOptions="Center"
+               Text="Netowrk Operation" Style="{StaticResource Headline}" />
+        
+        <Button Grid.Row="1" Text="Say Hello !" Command="{Binding SendTextOperationCommand}" />
+        
+        <dg:DataGrid
+        Grid.Row="2"
+        ItemsSource="{Binding Operations}"
+        BorderThickness="1"
+        BorderColor="Gray">
+            <dg:DataGrid.Columns>
+                <dg:DataGridColumn Title="Operation Id" PropertyName="Id" Width="*"/>
+                <dg:DataGridColumn Title="Client IP" PropertyName="Client.RemoteAddress" Width="*"/>
+                <dg:DataGridColumn Title="Sended" PropertyName="SendedTimestamp" Width="*"/>
+                <dg:DataGridColumn Title="Received Back" PropertyName="ClosedTimestamp" Width="*"/>
+                <dg:DataGridColumn Title="Status" PropertyName="StatusText" Width="*"/>
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
+    </Grid>
+</ContentPage>

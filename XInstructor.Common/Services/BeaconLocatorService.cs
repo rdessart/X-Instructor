@@ -94,7 +94,7 @@ public class BeaconLocatorService
 
     protected void EndReceive(IAsyncResult ar)
     {
-        int received = 0;
+        int received;
         try
         {
             received = (ar.AsyncState as Socket)!.EndReceiveFrom(ar, ref _remoteEP);
@@ -108,7 +108,6 @@ public class BeaconLocatorService
         if (received > 0)
         {
             string data = Encoding.ASCII.GetString(_buffer, 0, received);
-            Debug.WriteLine($"Received {data}");
             BeaconOperation? beacon = null;
             try
             {

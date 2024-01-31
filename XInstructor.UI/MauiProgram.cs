@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 using XInstructor.Common.Services;
 using XInstructor.Common.ViewModels;
 using XInstructor.UI.ViewModels;
@@ -12,6 +13,8 @@ namespace XInstructor.UI
         public static MauiAppBuilder RegisterService(this MauiAppBuilder app) 
         {
             app.Services.AddSingleton<BeaconLocatorService>();
+            app.Services.AddSingleton<UDPSimulatorService>();
+            app.Services.AddSingleton<ClientManagerService>();
             return app;
         }
 
@@ -20,6 +23,7 @@ namespace XInstructor.UI
             app.Services.AddSingleton<HomeViewModel>();
             app.Services.AddSingleton<WeatherViewModelMaui>();
             app.Services.AddSingleton<FailureViewModel>();
+            app.Services.AddSingleton<RequestViewModel>();
             return app;
         }
 
@@ -28,6 +32,7 @@ namespace XInstructor.UI
             app.Services.AddTransient<HomePage>();
             app.Services.AddTransient<WeatherPage>();
             app.Services.AddTransient<FailurePage>();
+            app.Services.AddTransient<RequestPage>();
             return app;
         }
 
@@ -49,8 +54,17 @@ namespace XInstructor.UI
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
-            return builder.Build();
+            var app = builder.Build();
+            var udp = app.Services.GetRequiredService<UDPSimulatorService>();
+            if(!udp.Initalize())
+            {
+                Debugger.Break();
+            }
+            else
+            {
+                udp.Start();
+            }
+            return app;
         }
     }
 }
