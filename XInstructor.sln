@@ -5,25 +5,9 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XInstructor.UI", "XInstructor.UI\XInstructor.UI.csproj", "{CF41B69A-1314-4DA8-B897-DDE0CF697D27}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XInstructor.Xplane", "XInstructor.Xplane\XInstructor.Xplane.vcxproj", "{FDDAA7E8-81F1-4378-81B5-D3934A839792}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XInstructor.Common", "XInstructor.Common\XInstructor.Common.csproj", "{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}"
 EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "X-Plane", "..\..\..\..\..\X-Plane 12\X-Plane.exe", "{77AA6EDA-C948-4836-83BA-F25DB26A79F9}"
-	ProjectSection(DebuggerProjectSystem) = preProject
-		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\X-Plane 12\X-Plane.exe
-		RemoteMachine = ZOIDBERG
-		StartingDirectory = C:\X-Plane 12
-		Environment = Default
-		LaunchingEngine = 00000000-0000-0000-0000-000000000000
-		UseLegacyDebugEngines = No
-		LaunchSQLEngine = No
-		AttachLaunchAction = No
-		IORedirection = Auto
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInstructor.Common", "XInstructor.Common\XInstructor.Common.csproj", "{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XInstructor.Tester", "XInstructor.Tester\XInstructor.Tester.csproj", "{393CDE89-0200-4454-AFEE-0A938C23B3AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XInstructor.Tester", "XInstructor.Tester\XInstructor.Tester.csproj", "{393CDE89-0200-4454-AFEE-0A938C23B3AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,18 +29,6 @@ Global
 		{CF41B69A-1314-4DA8-B897-DDE0CF697D27}.Release|x64.ActiveCfg = Release|Any CPU
 		{CF41B69A-1314-4DA8-B897-DDE0CF697D27}.Release|x64.Build.0 = Release|Any CPU
 		{CF41B69A-1314-4DA8-B897-DDE0CF697D27}.Release|x64.Deploy.0 = Release|Any CPU
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Debug|Any CPU.Build.0 = Debug|x64
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Debug|x64.ActiveCfg = Debug|x64
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Debug|x64.Build.0 = Debug|x64
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Release|Any CPU.ActiveCfg = Release|x64
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Release|Any CPU.Build.0 = Release|x64
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Release|x64.ActiveCfg = Release|x64
-		{FDDAA7E8-81F1-4378-81B5-D3934A839792}.Release|x64.Build.0 = Release|x64
-		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Debug|Any CPU.ActiveCfg = Release|x64
-		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Debug|x64.ActiveCfg = Release|x64
-		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Release|Any CPU.ActiveCfg = Release|x64
-		{77AA6EDA-C948-4836-83BA-F25DB26A79F9}.Release|x64.ActiveCfg = Release|x64
 		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEA8C853-4C0C-45FC-AA0B-6D520C2C7914}.Debug|x64.ActiveCfg = Debug|Any CPU
