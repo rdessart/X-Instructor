@@ -9,10 +9,13 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="GeographicLib.NET" Version="2.1.2" />
+    <PackageReference Include="UnitsNet" Version="5.43.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\XInstructor.Common\XInstructor.Common.csproj" />
+    <ProjectReference Include="..\XInstructor.NavigationDatabase\XInstructor.NavigationDatabase.csproj" />
   </ItemGroup>
 
 </Project>

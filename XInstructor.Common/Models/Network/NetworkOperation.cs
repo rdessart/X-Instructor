@@ -4,6 +4,7 @@ namespace XInstructor.Common.Models.Network;
 
 [JsonPolymorphic]
 [JsonDerivedType(typeof(SpeakOperation))]
+[JsonDerivedType(typeof(AIOperation))]
 public class NetworkOperation
 {
     [JsonPropertyName("Operation")]

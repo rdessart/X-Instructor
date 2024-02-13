@@ -69,7 +69,10 @@ public partial class NavigationDatabaseContext : DbContext
     public virtual DbSet<Vhfnavaid> Vhfnavaids { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlite(@"Data Source=C:\Users\rdess\AppData\Local\X-Instructor\database.db");
+    {
+        string path = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "X-Instructor", "database.db");
+        optionsBuilder.UseSqlite($"Data Source={path}");
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
