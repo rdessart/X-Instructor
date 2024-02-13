@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace XInstructor.Common.Models;
+namespace XInstructor.Common.Models.Network;
 
 public class DatarefModel
 {
@@ -11,5 +11,5 @@ public class DatarefModel
     [JsonPropertyName("Type")]
     public string? Type { get; set; }
     [JsonPropertyName("Value")]
-    public string? Value { get; set; }  
+    public string? Value { get; set; }
 }
